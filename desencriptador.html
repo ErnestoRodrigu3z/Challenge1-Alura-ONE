@@ -1,0 +1,38 @@
+<meta charset="UTF-8">
+
+<script>
+
+function saltarLinea ()
+    {
+        document.write("<br>");
+    }
+    function imprimir (mensaje)
+    {
+        document.write (mensaje);
+        saltarLinea();
+    }
+    imprimir ("<input/>");
+    imprimir("<button>desencriptar</button>");
+
+    // instanciamos los objetos que utilizamos en html para poder recopilar la informacion en jss
+    var input = document.querySelector("input");
+    var button = document.querySelector ("button");
+    var fraseDecodificada = "";
+    input.focus();
+
+    function desencriptar ()
+    {
+        if (input.value != "")
+        {
+        fraseDecodificada = input.value.replace(/enter/gi, "e").replace(/imes/gi, "i").replace(/ai/gi, "a").replace(/ober/gi, "o").replace(/ufat/gi, "u");
+        imprimir(fraseDecodificada);
+        input.focus();
+        input.value = "";
+        } else {
+            alert ("No hay un ningún texto que desencriptar");
+            input.focus();
+        }
+    }
+
+    button.onclick = desencriptar;
+</script>

@@ -1,0 +1,67 @@
+<meta charset="UTF-8">
+
+<script>
+
+function saltarLinea ()
+    {
+        document.write("<br>");
+    }
+    function imprimir (mensaje)
+    {
+        document.write (mensaje);
+        saltarLinea();
+    }
+    imprimir ("<input/>");
+    imprimir("<button>encriptar</button>");
+
+    // instanciamos los objetos que utilizamos en html para poder recopilar la informacion en jss
+    var input = document.querySelector("input");
+    var button = document.querySelector ("button");
+    var fraseCodificada = "";
+    input.focus();
+
+    function codigoEncriptado (letra)
+    {
+        var letraCodificada = letra;
+        if (letra == 'a')
+        {
+            letraCodificada = "ai";
+        }
+        if (letra == 'e')
+        {
+            letraCodificada = "enter";
+        }
+        if (letra == 'i')
+        {
+            letraCodificada = "imes";
+        }
+        if (letra == 'o')
+        {
+            letraCodificada = "ober";
+        }
+        if (letra == 'u')
+        {
+            letraCodificada = "ufat";
+        }
+        return letraCodificada;
+    }
+    function encriptar ()
+    {
+        if (input.value != "")
+        {
+        for (var i = 0; i < input.value.length; i++)
+        {
+            fraseCodificada += codigoEncriptado(input.value[i]);
+        }
+
+        imprimir(fraseCodificada);
+        input.focus();
+        input.value = "";
+        } else {
+            alert ("No hay ningun texto que encriptar");
+            input.focus();
+        }
+
+    }
+    button.onclick = encriptar;
+</script>
