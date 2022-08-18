@@ -12,8 +12,6 @@
 
         <input/>
         <button style = "display: block;"> Encriptar </button>
-
-        <input/>
         <button style = "display: block;"> Desencriptar </button>
 
     </body>
@@ -29,12 +27,17 @@
             document.write (mensaje);
             saltarLinea();
         }
+    function reiniciarTextBox ()
+        {
+            texto.focus();
+            texto.value = "";
+        }
 
     // instanciamos los objetos que utilizamos en html para poder recopilar la informacion en jss
-    var input = document.querySelector("input");
+    var texto = document.querySelector("input");
     var button = document.querySelector ("button");
     var fraseCodificada = "";
-    input.focus();
+    texto.focus();
 
     function codigoEncriptado (letra)
     {
@@ -64,20 +67,30 @@
 
     function encriptar ()
     {
-        if (input.value != "")
+        if (texto.value != "")
         {
-        for (var i = 0; i < input.value.length; i++)
+        for (var i = 0; i < texto.value.length; i++)
         {
             fraseCodificada += codigoEncriptado(input.value[i]);
         }
-
         imprimir(fraseCodificada);
-        input.focus();
-        input.value = "";
         } else {
             alert ("No hay ningun texto que encriptar");
-            input.focus();
         }
+        reiniciarTextBox();
+    }
+
+    function desencriptar ()
+    {
+        if (texto.value != "")
+        {
+        fraseDecodificada = texto.value.replace(/enter/gi, "e").replace(/imes/gi, "i").replace(/ai/gi, "a").replace(/ober/gi, "o").replace(/ufat/gi, "u");
+        imprimir(fraseDecodificada);
+        } else {
+            alert ("No hay un ningún texto que desencriptar");
+        }
+        reiniciarTextBox();
     }
     button.onclick = encriptar;
+
 </script>
