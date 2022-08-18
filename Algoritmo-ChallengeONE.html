@@ -1,18 +1,34 @@
-<meta charset="UTF-8">
+<!DOCTYPE html>
 
+<html lang = "es">
+    <head>
+
+        <title> Aplicación para encriptar texto </title>
+        <meta charset="UTF-8">
+
+    </head>
+
+    <body>
+
+        <input/>
+        <button style = "display: block;"> Encriptar </button>
+
+        <input/>
+        <button style = "display: block;"> Desencriptar </button>
+
+    </body>
+</html>
 <script>
 
-function saltarLinea ()
-    {
-        document.write("<br>");
-    }
+    function saltarLinea ()
+        {
+            document.write("<br>");
+        }
     function imprimir (mensaje)
-    {
-        document.write (mensaje);
-        saltarLinea();
-    }
-    imprimir ("<input/>");
-    imprimir("<button>encriptar</button>");
+        {
+            document.write (mensaje);
+            saltarLinea();
+        }
 
     // instanciamos los objetos que utilizamos en html para poder recopilar la informacion en jss
     var input = document.querySelector("input");
@@ -45,6 +61,7 @@ function saltarLinea ()
         }
         return letraCodificada;
     }
+
     function encriptar ()
     {
         if (input.value != "")
@@ -61,7 +78,6 @@ function saltarLinea ()
             alert ("No hay ningun texto que encriptar");
             input.focus();
         }
-
     }
     button.onclick = encriptar;
 </script>
