@@ -11,11 +11,12 @@
     <body>
 
         <input/>
-        <button style = "display: block;"> Encriptar </button>
-        <button style = "display: block;"> Desencriptar </button>
+        <button onclick="encriptar()"> Encriptar </button>
+        <button onclick="desencriptar()"> Desencriptar </button>
 
     </body>
 </html>
+
 <script>
 
     function saltarLinea ()
@@ -35,7 +36,8 @@
 
     // instanciamos los objetos que utilizamos en html para poder recopilar la informacion en jss
     var texto = document.querySelector("input");
-    var button = document.querySelector ("button");
+    /*var botonEncriptador = document.querySelector ("button");
+    var botonDesincriptador = document.querySelector ("button");*/
     var fraseCodificada = "";
     texto.focus();
 
@@ -69,11 +71,11 @@
     {
         if (texto.value != "")
         {
-        for (var i = 0; i < texto.value.length; i++)
-        {
-            fraseCodificada += codigoEncriptado(input.value[i]);
-        }
-        imprimir(fraseCodificada);
+            for (var i = 0; i < texto.value.length; i++)
+            {
+                fraseCodificada += codigoEncriptado(texto.value[i]);
+            }
+            imprimir(fraseCodificada);
         } else {
             alert ("No hay ningun texto que encriptar");
         }
@@ -84,13 +86,12 @@
     {
         if (texto.value != "")
         {
-        fraseDecodificada = texto.value.replace(/enter/gi, "e").replace(/imes/gi, "i").replace(/ai/gi, "a").replace(/ober/gi, "o").replace(/ufat/gi, "u");
-        imprimir(fraseDecodificada);
+            fraseDecodificada = texto.value.replace(/enter/gi, "e").replace(/imes/gi, "i").replace(/ai/gi, "a").replace(/ober/gi, "o").replace(/ufat/gi, "u");
+            imprimir(fraseDecodificada);
         } else {
             alert ("No hay un ningún texto que desencriptar");
         }
         reiniciarTextBox();
     }
-    button.onclick = encriptar;
 
 </script>
