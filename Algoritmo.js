@@ -8,6 +8,12 @@ function imprimir (mensaje)
 {
     texto.value = mensaje;
 }
+
+function limpiarFrases ()
+{
+    fraseCodificada = "";
+    fraseDecodificada = "";
+}
 // instanciamos los objetos que utilizamos en html para poder recopilar la informacion en jss
 var texto = document.querySelector("#mensaje");
 var input = document.querySelector("#textBox");
@@ -41,21 +47,6 @@ if (letra == 'u')
 return letraCodificada;
 }
 
-function encriptar (datoEscrito)
-{
-    for (var i = 0; i < texto.value.length; i++)
-    {
-        fraseCodificada += codigoEncriptado(datoEscrito.value[i]);
-    }
-    return fraseCodificada;
-}
-
-function desencriptar ()
-{
-    fraseDecodificada = texto.value.replace(/enter/gi, "e").replace(/imes/gi, "i").replace(/ai/gi, "a").replace(/ober/gi, "o").replace(/ufat/gi, "u");
-    return fraseDecodificada;
-}
-
 document.getElementById('botonEncriptar').onclick = (e) => {
     e.preventDefault();
     for (var i = 0; i < input.value.length; i++)
@@ -65,14 +56,16 @@ document.getElementById('botonEncriptar').onclick = (e) => {
     mensaje.value = fraseCodificada;
     input.value = "";
     aparece()
+    limpiarFrases();
 }
 
 document.getElementById('botonDesencriptar').onclick = (e) => {
     e.preventDefault();
-    const textoDesencriptado = desencriptar(input.value);
-    mensaje.value = textoDesencriptado;
+    fraseDecodificada = input.value.replace(/enter/gi, "e").replace(/imes/gi, "i").replace(/ai/gi, "a").replace(/ober/gi, "o").replace(/ufat/gi, "u");
+    mensaje.value = fraseDecodificada;
     input.value = "";
-    aparece()
+    aparece();
+    limpiarFrases();
 }
 
 document.getElementById('btn-copiar').onclick = (e) => {
